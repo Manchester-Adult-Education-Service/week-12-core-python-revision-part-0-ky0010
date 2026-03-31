@@ -217,7 +217,13 @@ product_catalogue = {
 # 4. If the code does not exist, print "Error: Product code not found."
 
 # Write your code below:
+code = input("Enter a product code:(ex.PRD002) ")
 
+if code in product_catalogue:
+    price = product_catalogue[code]
+    print(f"Product: {code} | Price: £{price: .2f}")
+else:
+    print("Error: Product code not found")
 
 # -------------------------------------------
 # CHECKPOINT

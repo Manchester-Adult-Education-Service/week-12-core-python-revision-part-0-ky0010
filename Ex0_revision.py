@@ -37,7 +37,12 @@ print("-------------------------------------------\n"
 # 4. Print the final 'total_cost' using an f-string, formatted to two decimal places.
 
 # Write your code below:
+price = 45.00
+VAT_RATE = 0.20
 
+total_cost = price + (price*VAT_RATE)
+
+print(f"Total cost: £{total_cost: .2f}")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -70,7 +75,14 @@ print("\n-------------------------------------------\n"
 # 5. Otherwise (if total_cost is 60 or more), print "Purchase denied: Budget severely exceeded."
 
 # Write your code below:
+budget = 50
 
+if total_cost <= budget:
+    print("Purchase successful! You have budget remaining.")
+elif total_cost < 60:
+    print("Warning: Purchase exceeds budget but is manageable.")
+else:
+    print("Purchase declined: budget severely exceeded.")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -106,13 +118,14 @@ print("\n-------------------------------------------\n"
 # HINT: You may need to use a single `try` block that covers both `int()` conversions.
 
 def calculate_area():
-    # Insert try/except block here
-    # Remember to handle the input() and int() conversions inside the try block
-    length = int(input("Enter rectangle length: "))
-    width = int(input("Enter rectangle width: "))
-    area = length * width
-    return area
-    # Insert except block here
+    try:
+        length = int(input("Enter rectangle length: "))
+        width = int(input("Enter rectangle width: "))
+        area = length * width
+        return area
+    except ValueError:
+        print("Error: Please enter only numerical values")
+        return 0
 
 # Call the function:
 rectangle_area = calculate_area()
@@ -154,7 +167,17 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 # 5. Print both the 'total_sales' and 'average_sale', formatted to two decimal places.
 
 # Write your code below:
+weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 
+total_sales = 0
+
+for sale in weekly_sales: 
+    total_sales += sale
+
+average_sale = total_sales / len(weekly_sales)
+
+print(f"Total Sales: £{total_sales: .2f}")
+print(f"Average Sale: £{average_sale: .2f}")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -194,7 +217,13 @@ product_catalogue = {
 # 4. If the code does not exist, print "Error: Product code not found."
 
 # Write your code below:
+code = input("Enter a product code:(ex.PRD002) ")
 
+if code in product_catalogue:
+    price = product_catalogue[code]
+    print(f"Product: {code} | Price: £{price: .2f}")
+else:
+    print("Error: Product code not found")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -227,6 +256,19 @@ product_catalogue = {
 # 2. **Optional but Recommended:** Review the solution provided by the tutor for handling `ValueError` (like in Task 3) and apply that knowledge to Task 5 to prevent potential crashes if the dictionary used different data types.
 
 # -------------------------------------------
+try:
+    code = input("Enter a product code: ").upper()
+
+    if code in product_catalogue:
+        price = product_catalogue[code]
+        print(f"Product: {code} | Price: £{price: .2f}")
+
+    else:
+        print("Error: Product code not found.")
+    
+except ValueError:
+    print("Error: Invalid input format.")
+
 
 # Extension 2: The WHILE Loop Challenge
 # -------------------------------------------

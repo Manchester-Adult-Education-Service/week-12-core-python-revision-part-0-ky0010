@@ -256,6 +256,19 @@ else:
 # 2. **Optional but Recommended:** Review the solution provided by the tutor for handling `ValueError` (like in Task 3) and apply that knowledge to Task 5 to prevent potential crashes if the dictionary used different data types.
 
 # -------------------------------------------
+try:
+    code = input("Enter a product code: ").upper()
+
+    if code in product_catalogue:
+        price = product_catalogue[code]
+        print(f"Product: {code} | Price: £{price: .2f}")
+
+    else:
+        print("Error: Product code not found.")
+    
+except ValueError:
+    print("Error: Invalid input format.")
+
 
 # Extension 2: The WHILE Loop Challenge
 # -------------------------------------------

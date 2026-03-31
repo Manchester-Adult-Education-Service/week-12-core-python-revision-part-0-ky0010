@@ -118,13 +118,14 @@ print("\n-------------------------------------------\n"
 # HINT: You may need to use a single `try` block that covers both `int()` conversions.
 
 def calculate_area():
-    # Insert try/except block here
-    # Remember to handle the input() and int() conversions inside the try block
-    length = int(input("Enter rectangle length: "))
-    width = int(input("Enter rectangle width: "))
-    area = length * width
-    return area
-    # Insert except block here
+    try:
+        length = int(input("Enter rectangle length: "))
+        width = int(input("Enter rectangle width: "))
+        area = length * width
+        return area
+    except ValueError:
+        print("Error: Please enter only numerical values")
+        return 0
 
 # Call the function:
 rectangle_area = calculate_area()

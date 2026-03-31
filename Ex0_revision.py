@@ -167,7 +167,17 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 # 5. Print both the 'total_sales' and 'average_sale', formatted to two decimal places.
 
 # Write your code below:
+weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 
+total_sales = 0
+
+for sale in weekly_sales: 
+    total_sales += sale
+
+average_sale = total_sales / len(weekly_sales)
+
+print(f"Total Sales: £{total_sales: .2f}")
+print(f"Average Sale: £{average_sale: .2f}")
 
 # -------------------------------------------
 # CHECKPOINT
